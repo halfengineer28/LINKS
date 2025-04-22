@@ -2,7 +2,8 @@ import express from "express";
 import authRoutes from "./routes/auth.routes.js";
 import dotenv from "dotenv";
 import connectDB from "./db/connectMongo.js";
-import userRoutes from "./routes/user.routes.js";
+import userRoutes from "./routes/user.routes.js"
+import postRoutes from "./routes/post.routes.js"
 import { v2 as cloudinary } from "cloudinary";
 
 import cookieParser from "cookie-parser";
@@ -22,6 +23,7 @@ cloudinary.config({
 
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/post", postRoutes)
 console.log(process.env.MONGO_URI);
 
 app.listen(PORT, () => {
