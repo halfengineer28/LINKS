@@ -36,15 +36,15 @@ const EditProfileModal = () => {
             <div className="flex flex-wrap gap-2">
               <input
                 type="text"
-                placeholder="Full name"
-                className="flex-1 input border border-gray-700 rounded p-2 input-md "
-                value={formData.fullname}
+                placeholder="Full Name"
+                className="flex-1 input border border-gray-700 rounded p-2 input-md"
+                value={formData.fullName}
                 name="fullName"
                 onChange={handleInputChange}
               />
               <input
                 type="text"
-                placeholder="username"
+                placeholder="Username"
                 className="flex-1 input border border-gray-700 rounded p-2 input-md"
                 value={formData.username}
                 name="username"
@@ -53,26 +53,26 @@ const EditProfileModal = () => {
             </div>
             <div className="flex flex-wrap gap-2">
               <input
-                type="text"
+                type="email"
                 placeholder="Email"
-                className=" flex-1 input border border-gray-500 rounded p-2 input-md"
+                className="flex-1 input border border-gray-700 rounded p-2 input-md"
                 value={formData.email}
                 name="email"
                 onChange={handleInputChange}
               />
               <textarea
                 placeholder="Bio"
-                className="flex-1 input border border-gray-500 rounded p-2 input-md"
+                className="flex-1 input border border-gray-700 rounded p-2 input-md"
                 value={formData.bio}
                 name="bio"
                 onChange={handleInputChange}
-              ></textarea>
+              />
             </div>
             <div className="flex flex-wrap gap-2">
               <input
                 type="password"
                 placeholder="Current Password"
-                className="flex-1 input border border-gray-500 rounded p-2 input-md "
+                className="flex-1 input border border-gray-700 rounded p-2 input-md"
                 value={formData.currentPassword}
                 name="currentPassword"
                 onChange={handleInputChange}
@@ -80,7 +80,7 @@ const EditProfileModal = () => {
               <input
                 type="password"
                 placeholder="New Password"
-                className="flex-1 input border border-gray-500 rounded p-2 input-md"
+                className="flex-1 input border border-gray-700 rounded p-2 input-md"
                 value={formData.newPassword}
                 name="newPassword"
                 onChange={handleInputChange}
@@ -89,7 +89,7 @@ const EditProfileModal = () => {
             <input
               type="text"
               placeholder="Link"
-              className="flex-1 input  border border-gray-500 rounded p-2 input-md"
+              className="flex-1 input border border-gray-700 rounded p-2 input-md"
               value={formData.link}
               name="link"
               onChange={handleInputChange}

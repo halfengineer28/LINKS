@@ -4,7 +4,7 @@ import { BsEmojiSmileFill } from "react-icons/bs";
 import { IoCloseSharp } from "react-icons/io5";
 
 const CreatePost = () => {
-  const [text, setText] = useState();
+  const [text, setText] = useState("");
   const [img, setImg] = useState(null);
   const imgRef = useRef(null);
   const isPending = false;
@@ -31,13 +31,13 @@ const CreatePost = () => {
     <div className="flex p-4 items-start gap-4 border-b border-gray-700">
       <div className="avatar">
         <div className="w-8 rounded-full">
-          <img src={data.profileImage || "/avatar/placeholder.png"} alt="" />
+          <img src={data.profileImage || "/avatar-placeholder.png"} />
         </div>
       </div>
       <form className="flex flex-col gap-2 w-full" onSubmit={handleSubmit}>
         <textarea
           className="textarea w-full p-0 text-lg resize-none border-none focus:outline-none border-gray-800"
-          placeholder="What is happening?"
+          placeholder="What is happening?!"
           value={text}
           onChange={(e) => {
             setText(e.target.value);
@@ -66,7 +66,7 @@ const CreatePost = () => {
             />
             <BsEmojiSmileFill className="fill-primary w-5 h-5 cursor-pointer" />
           </div>
-          <input type="'file' hidden ref={imgRef} " onChange={handleImageChange} />
+          <input type='file' hidden ref={imgRef}  onChange={handleImageChange} />
           <button className="btn btn-primary rounded-full btn-sm text-white px-4">
             {isPending ? "Posting..." : "Post"}
           </button>

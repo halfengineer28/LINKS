@@ -13,7 +13,7 @@ const ProfileHeaderSkeleton = () => {
             </div>
             <div className="skeleton h-6 mt-4 w-24 ml-auto rounded-full"></div>
             <div className="skeleton h-4 w-14 rounded-full mt-4"></div>
-            <div className="skeleton h-4 w-20 rounded-full "></div>
+            <div className="skeleton h-4 w-20 rounded-full"></div>
             <div className="skeleton h-4 w-2/3 rounded-full"></div>
           </div>
         </div>

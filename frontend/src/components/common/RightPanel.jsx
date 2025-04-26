@@ -3,18 +3,21 @@ import { USERS_FOR_RIGHT_PANEL } from "../../uilits/db/dummy";
 import { Link } from "react-router-dom";
 import RightPannelSkeleton from "../skeleton/RightPannelSkeleton";
 
-const RightPannel = () => {
+const RightPanel = () => {
   const isLoading = false;
   return (
-    <div className= " lg:block my-4 mx-2">
+    <div className=" lg:block my-4 mx-2">
       <div className="bg-[#16181c] p-4 rounded-md sticky top-2">
         <p className="font bold">Who to follow</p>
         <div className="flex flex-col gap-4">
-          {isLoading &&
-            ((<RightPannelSkeleton />),
-            (<RightPannelSkeleton />),
-            (<RightPannelSkeleton />),
-            (<RightPannelSkeleton />))}
+          {isLoading && (
+            <>
+              (<RightPannelSkeleton />
+              ), (<RightPannelSkeleton />
+              ), (<RightPannelSkeleton />
+              ), (<RightPannelSkeleton />)
+            </>
+          )}
           {!isLoading &&
             USERS_FOR_RIGHT_PANEL?.map((user) => (
               <Link
@@ -26,18 +29,27 @@ const RightPannel = () => {
                   <div className="avatar">
                     <div className="w-8 rounded-full">
                       <img
-                        src={user.profileImage || "/avatar-placeholder.png "}
+                        src={user.profileImage || "/avatar-placeholder.png"}
                       />
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-semibold tracking-tight w-28"> {user.fullName}</span>
-                    <span className="text-sm text-slate-500">@{user.username}</span>
+                    <span className="font-semibold tracking-tight truncate w-28">
+                      {" "}
+                      {user.fullName}
+                    </span>
+                    <span className="text-sm text-slate-500">
+                      @{user.username}
+                    </span>
                   </div>
                 </div>
                 <div>
-                    <button className="btn bg-white text-black hover:bg-white hover:opacity-90 rounded-full btn-sm" onClick={(e) => e.preventDefault()}>Follow</button>
-
+                  <button
+                    className="btn bg-white text-black hover:bg-white hover:opacity-90 rounded-full btn-sm"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Follow
+                  </button>
                 </div>
               </Link>
             ))}
@@ -47,4 +59,4 @@ const RightPannel = () => {
   );
 };
 
-export default RightPannel;
+export default RightPanel;

@@ -11,7 +11,7 @@ const Post = ({post}) => {
   const postOwner = post.user;
   const isLiked = false;
   const isMyPost = true;
-  const formattedData = "1h";
+  const formattedDate = "1h";
   const isCommenting = false;
   const handleDeletePost = () => {};
   const handlePostComment = (e) => {
@@ -19,14 +19,14 @@ const Post = ({post}) => {
   };
   const handleLikePost = () => {};
   return (
-    <div>
+    <>
       <div className="flex gap-2 items-start p-4 border-b border-gray-700">
         <div className="avatar">
           <Link
             to={`/profile/${postOwner.username}`}
             className="w-8 rounded-full overflow-hidden"
           >
-            <img src={postOwner.profileImage || "/avatar-paceholder.png"} />
+            <img src={postOwner.profileImage || "/avatar-placeholder.png"} />
           </Link>
         </div>
         <div className="flex flex-col flex-1">
@@ -39,7 +39,7 @@ const Post = ({post}) => {
                 @{postOwner.username}
               </Link>
               <span>.</span>
-              <span>{formattedData}</span>
+              <span>{formattedDate}</span>
             </span>
             {isMyPost && (
               <span className="flex justify-end flex-1">
@@ -51,10 +51,10 @@ const Post = ({post}) => {
             )}
           </div>
           <div className="flex flex-col gap-3 overflow-hidden">
-            <span>${post.text}</span>
+            <span>{post.text}</span>
             {post.img && (
               <img
-                src="{post.img}"
+                src={post.img}
                 className="h-80 object-contain rounded-lg border border-gray-700"
               />
             )}
@@ -70,12 +70,12 @@ const Post = ({post}) => {
                 }
               >
                 <FaRegComment className="w-4 h-4 text-slate-500 group-hover:text-sky-400" />
-                <span className="'text-sm text-slate-500 group-hover:text-sky-400">
+                <span className="text-sm text-slate-500 group-hover:text-sky-400">
                   {post.comments.length}
                 </span>
               </div>
               <dialog
-                id={`comments_model${post._id}`}
+                id={`comments_modal${post._id}`}
                 className="modal border-none outline-none "
               >
                 <div className="modal -box  rounded border border-gray-600">
@@ -144,7 +144,7 @@ const Post = ({post}) => {
               </div>
               <div
                 className="flex gap-1 items-center group cursor-pointer"
-                onClick={handleLikePost}
+                onSubmit={handleLikePost}
               >
                 {!isLiked && (
                   <FaRegHeart className="w-4 h-4 cursor-pointer text-slate-500 group-hover:text-pink-500" />
@@ -155,7 +155,7 @@ const Post = ({post}) => {
                 <span
                   className={`text-sm text-slate-500 group-hover:text-pink-500 ${
                     isLiked ? "text-pink-500" : ""
-                  } }`}
+                  }`}
                 >
                   {post.likes.length}
                 </span>
@@ -167,7 +167,7 @@ const Post = ({post}) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
